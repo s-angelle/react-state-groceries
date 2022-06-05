@@ -4,8 +4,8 @@
 
 body {
   margin: 0 auto;
-  background-color: rgba(250, 235, 215, 0.75);
-  color: #116118;
+  background-color: rgba(250, 235, 215, 0.55);
+  color: #0c4410;
   font-family: "Italiana", serif;
   font-weight: bold;
 }
@@ -40,9 +40,9 @@ ul li {
 }
 
 .item-section{
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
 }
 
 #new-item input {
