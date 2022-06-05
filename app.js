@@ -1,6 +1,4 @@
-
 class App extends React.Component {
-
   state = {
     items: itemsList,
     name: "",
@@ -33,10 +31,20 @@ class App extends React.Component {
     });
   };
 
+  isPurchased = (e, clickedItem) => {
+    const purchasedItemIndex = this.state.items.indexOf(clickedItem)
+    const purchasedItems = this.state.items.filter(item => item != this.state.items[purchasedItemIndex])
+    this.setState({
+        items: purchasedItems
+    })
+  };
+
   render() {
     return (
-      <div>
+      <div id="main">
         <h1>Organic Grocery Store</h1>
+        <h3>Add an Item to Our Store :</h3>
+        <div class='item-section'>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name:</label>
           <input
@@ -52,7 +60,7 @@ class App extends React.Component {
             onChange={this.handleChange}
             id="brand"
           />
-          <label htmlFor="price">Price:</label>
+          <label htmlFor="price">Price: $</label>
           <input
             type="number"
             value={this.state.price}
@@ -73,30 +81,27 @@ class App extends React.Component {
             onChange={this.handleChange}
             id="quantity"
           />
-          <input type="submit" />
+          <div id='new-item' class='item-section' >
+          <input type="submit" value='Create' />
+          </div>
         </form>
-        <div>
-          <h2>Preview our new item</h2>
-          <h3>Name: {this.state.name}</h3>
-          <h4>Brand: {this.state.brand}</h4>
-          <h4>Price: ${this.state.price}</h4>
-          <h5>Units: {this.state.units}</h5>
-          <h5>Quantity: {this.state.quantity}</h5>
         </div>
-        <h2>PRODUCTS</h2>
-        <ul>
-          {this.state.items
-           .filter(item => item.isPurchased!=true)
-            .map((item) => (
-              <li>
-                <p>{item.name}</p>
-                <p>{item.brand}</p>
-                <p>${item.price}</p>
-                <p>{item.units}</p>
-                <p>{item.quantity}</p>
-              </li>
-            ))}
-        </ul>
+        <div id="items-display">
+        <h2>Our Products</h2>
+          <ul id="items-available">
+            {this.state.items
+              .filter((item) => item.isPurchased != true)
+              .map((item) => (
+                <li>
+                  <p>{item.name}</p>
+                  <p>{item.brand}</p>
+                  <p>${item.price}</p>
+                  <p>{item.units}</p>
+                  <p>{item.quantity} available</p>
+                </li>
+              ))}
+          </ul>
+        </div>
       </div>
     );
   }

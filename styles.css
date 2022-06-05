@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  background-color: rgba(250, 235, 215, 0.75);
+  color: #116118;
+  font-family: "Italiana", serif;
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+form input {
+  border: #116118;
+  border-radius: 10%;
+  height: 1.8rem;
+  width: 5rem;
+  padding: 0.4rem;
+  background-color: rgb(201, 182, 155);
+}
+
+ul li {
+  list-style: none;
+  display: inline-block;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-left: 5rem;
+  border-radius: 2%;
+  width: 25%;
+  text-align: center;
+}
+
+.item-section{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+#new-item input {
+  border-radius: 10%;
+  background-color: #116118;
+  color: antiquewhite;
+}
+
+
+#items-display h2 {
+  margin-left: 5%;
+}
